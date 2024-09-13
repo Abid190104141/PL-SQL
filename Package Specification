@@ -1,0 +1,48 @@
+create or replace PACKAGE CUSTOMER_PACKAGE
+AS
+PROCEDURE ADD_CUSTOMER
+(
+
+C_id IN OUT NUMBER,
+c_fname IN VARCHAR2,
+c_lname IN VARCHAR2,
+c_mname IN VARCHAR2,
+c_add1 IN VARCHAR2,
+c_add2 IN VARCHAR2,
+c_city IN VARCHAR2,
+c_country IN VARCHAR2,
+c_date_added IN DATE,
+c_region IN VARCHAR2
+);
+
+PROCEDURE DISPLAY_NAMES;
+PROCEDURE GET_CUSTOMER
+(
+
+ c_id IN NUMBER
+
+);
+
+PROCEDURE show_customer
+(
+
+  customer_in IN customer%ROWTYPE
+
+);
+
+FUNCTION find_salescount
+(
+
+ p_sales_date IN date
+) RETURN NUMBER;
+
+FUNCTION get_names
+(
+
+ custid IN NUMBER
+) 
+RETURN SYS_REFCURSOR;
+
+
+
+END CUSTOMER_PACKAGE;
